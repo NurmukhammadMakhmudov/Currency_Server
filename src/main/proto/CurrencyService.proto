@@ -1,0 +1,27 @@
+syntax = "proto3";
+package com.currencyServer.grpc;
+
+option java_multiple_files = true;
+
+
+message CurrencyRequest {
+  string date = 1;
+}
+
+message Currency {
+  string numCode = 1;
+  string charCode = 2;
+  string nominal = 3;
+  string name = 4;
+  string value = 5;
+}
+
+message CurrencyResponse {
+  repeated Currency currency = 1;
+
+}
+
+
+service CurrencyServer {
+  rpc cur(CurrencyRequest) returns (CurrencyResponse);
+}
